@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FoodCard from '../components/FoodCard';
 import type { MenuItem, Category } from '../types';
+import { fetchMenuItems } from '../lib/api';
 
 const CATEGORIES: Array<'All' | Category> = [
   'All',
@@ -35,9 +36,8 @@ const Menu = () => {
   const activeCategory = (searchParams.get('category') ?? 'All') as 'All' | Category;
 
   useEffect(() => {
-    fetch('/api/menu')
-      .then((r) => r.json())
-      .then((data: MenuItem[]) => {
+    fetchMenuItems()
+      .then((data) => {
         setItems(data);
         setLoading(false);
       })

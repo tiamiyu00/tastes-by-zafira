@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import FoodCard from '../components/FoodCard';
 import PromoSection from '../components/PromoSection';
 import type { MenuItem } from '../types';
+import { fetchMenuItems } from '../lib/api';
 
 const Home = () => {
   const [popularItems, setPopularItems] = useState<MenuItem[]>([]);
@@ -11,9 +12,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/api/menu')
-      .then((r) => r.json())
-      .then((data: MenuItem[]) => {
+    fetchMenuItems()
+      .then((data) => {
         setPopularItems(data.filter((i) => i.popular && i.available));
         setLoading(false);
       })

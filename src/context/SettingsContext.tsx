@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 import type { Settings } from '../types';
+import { fetchSettings } from '../lib/api';
 
 interface SettingsContextType {
   settings: Settings;
@@ -22,13 +23,10 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 
   const refreshSettings = async () => {
     try {
-      const res = await fetch('/api/settings');
-      if (res.ok) {
-        const data = await res.json();
-        setSettings(data);
-      }
+      const data = await fetchSettings();
+      setSettings(data);
     } catch {
-      // use defaults if backend is unavailable
+      // keep default settings if Supabase is unavailable
     }
   };
 

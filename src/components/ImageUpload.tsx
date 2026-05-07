@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { uploadImage } from '../lib/api';
 
 interface Props {
   value: string;
@@ -25,12 +26,8 @@ const ImageUpload = ({ value, onChange }: Props) => {
     setUploading(true);
     setImgError(false);
     try {
-      const formData = new FormData();
-      formData.append('image', file);
-      const res = await fetch('/api/upload', { method: 'POST', body: formData });
-      if (!res.ok) throw new Error('Upload failed');
-      const data = await res.json();
-      onChange(data.url);
+      const url = await uploadImage(file);
+      onChange(url);
     } catch {
       setError('Upload failed. Please try again or paste a URL.');
     } finally {

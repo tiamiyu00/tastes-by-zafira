@@ -176,30 +176,17 @@ const Admin = () => {
 
   useEffect(() => {
     if (!authenticated) return;
-    Promise.all([
-      fetch('/api/menu').then((r) => r.json()),
-      fetch('/api/settings').then((r) => r.json()),
-    ])
+    Promise.all([fetchMenuItems(), fetchSettings()])
       .then(([menu, s]) => { setItems(menu); setSettings(s); setLoading(false); })
       .catch(() => setLoading(false));
   }, [authenticated]);
 
   const handleSaveItem = async (data: Omit<MenuItem, 'id'> | MenuItem) => {
     if (modalMode === 'add') {
-      const res = await fetch('/api/menu', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      const created = await res.json();
+      const created = await createMenuItem(data as Omit<MenuItem, 'id'>);
       setItems((prev) => [...prev, created]);
     } else if (editTarget) {
-      const res = await fetch(`/api/menu/${editTarget.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      const updated = await res.json();
+      const updated = await updateMenuItem(editTarget.id, data as Partial<Omit<MenuItem, 'id'>>);
       setItems((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
     }
     setModalMode(null);
@@ -208,27 +195,18 @@ const Admin = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this item? This cannot be undone.')) return;
-    await fetch(`/api/menu/${id}`, { method: 'DELETE' });
+    await deleteMenuItem(id);
     setItems((prev) => prev.filter((i) => i.id !== id));
   };
 
   const toggleAvailable = async (item: MenuItem) => {
-    const res = await fetch(`/api/menu/${item.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ available: !item.available }),
-    });
-    const updated = await res.json();
+    const updated = await updateMenuItem(item.id, { available: !item.available });
     setItems((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
   };
 
-  const saveSettings = async () => {
+  const handleSaveSettings = async () => {
     setSavingSettings(true);
-    await fetch('/api/settings', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(settings),
-    });
+    await saveSettings(settings);
     setSavingSettings(false);
     setSettingsMsg('✓ Settings saved!');
     setTimeout(() => setSettingsMsg(''), 2500);
@@ -420,7 +398,7 @@ const Admin = () => {
                   onChange={(e) => setSettings({ ...settings, deliveryFee: Number(e.target.value) })} />
               </div>
               <div className="admin-form-actions">
-                <button className="admin-save-btn" onClick={saveSettings} disabled={savingSettings}>
+                <button className="admin-save-btn" onClick={handleSaveSettings} disabled={savingSettings}>
                   {savingSettings ? 'Saving…' : 'Save Settings'}
                 </button>
                 {settingsMsg && <span className="settings-success">{settingsMsg}</span>}
