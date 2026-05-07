@@ -13,7 +13,7 @@ const CATEGORIES: Category[] = [
   'Soup Class',
 ];
 
-const ADMIN_PASSWORD = 'zafira2024';
+const ADMIN_PASSWORD = 'zafira2026';
 
 const blankItem = (): Omit<MenuItem, 'id'> => ({
   name: '',
