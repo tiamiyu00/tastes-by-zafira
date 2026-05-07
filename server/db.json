@@ -1,0 +1,479 @@
+{
+  "menu": [
+    {
+      "id": "fc1",
+      "name": "Chinese Fried Rice",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc2",
+      "name": "Nigerian Fried Rice",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc3",
+      "name": "Stir-Fry Pasta",
+      "category": "Food Class",
+      "price": 3200,
+      "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "fc4",
+      "name": "Jollof Pasta",
+      "category": "Food Class",
+      "price": 3200,
+      "image": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc5",
+      "name": "Jollof Rice",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc6",
+      "name": "Coconut Rice",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "fc7",
+      "name": "Creamy Pasta",
+      "category": "Food Class",
+      "price": 3200,
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc8",
+      "name": "Coconut Pasta",
+      "category": "Food Class",
+      "price": 3200,
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "fc9",
+      "name": "Spaghetti Bolognese",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1551183053-bf91798d416f?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "fc10",
+      "name": "Singapore Noodles",
+      "category": "Food Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p1",
+      "name": "Chicken Pie",
+      "category": "Pastries",
+      "price": 800,
+      "image": "https://images.unsplash.com/photo-1621303837174-89423f98e3d0?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p2",
+      "name": "Meat Pie",
+      "category": "Pastries",
+      "price": 600,
+      "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p3",
+      "name": "Chin Chin",
+      "category": "Pastries",
+      "price": 1200,
+      "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p4",
+      "name": "Fish Roll",
+      "category": "Pastries",
+      "price": 500,
+      "image": "https://images.unsplash.com/photo-1559181567-c3190960f6b7?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p5",
+      "name": "Puff Puff",
+      "category": "Pastries",
+      "price": 1000,
+      "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p6",
+      "name": "Buns",
+      "category": "Pastries",
+      "price": 800,
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p7",
+      "name": "Doughnut",
+      "category": "Pastries",
+      "price": 1500,
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d730?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p8",
+      "name": "Shawarma",
+      "category": "Pastries",
+      "price": 2500,
+      "image": "https://images.unsplash.com/photo-1561952638-2e2b1939a0b4?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "p9",
+      "name": "Hamburger",
+      "category": "Pastries",
+      "price": 2800,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "p10",
+      "name": "Cheesesteaks",
+      "category": "Pastries",
+      "price": 3000,
+      "image": "https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "p11",
+      "name": "Small Chops",
+      "category": "Pastries",
+      "price": 4500,
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "d1",
+      "name": "Vegetable Salad",
+      "category": "Desserts",
+      "price": 1800,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "d2",
+      "name": "Fruit Salad",
+      "category": "Desserts",
+      "price": 2000,
+      "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "d3",
+      "name": "Gizdodo",
+      "category": "Desserts",
+      "price": 2500,
+      "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "y1",
+      "name": "Parfait Production",
+      "category": "Yogurt Master Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "y2",
+      "name": "Yogurt Making",
+      "category": "Yogurt Master Class",
+      "price": 2500,
+      "image": "https://images.unsplash.com/photo-1571212515416-fef01fc43637?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "y3",
+      "name": "Fruit Preparation",
+      "category": "Yogurt Master Class",
+      "price": 1500,
+      "image": "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "y4",
+      "name": "Drinking Yogurt",
+      "category": "Yogurt Master Class",
+      "price": 1200,
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "y5",
+      "name": "Greek Yogurt",
+      "category": "Yogurt Master Class",
+      "price": 2000,
+      "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "y6",
+      "name": "Granola",
+      "category": "Yogurt Master Class",
+      "price": 2000,
+      "image": "https://images.unsplash.com/photo-1517093728432-a0440f8d45af?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "y7",
+      "name": "Packaging & Presentation",
+      "category": "Yogurt Master Class",
+      "price": 1000,
+      "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "dr1",
+      "name": "Zobo",
+      "category": "Drink Class",
+      "price": 800,
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "dr2",
+      "name": "Kunu (Haya)",
+      "category": "Drink Class",
+      "price": 700,
+      "image": "https://images.unsplash.com/photo-1606168094336-48f205522f4b?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "dr3",
+      "name": "Soymilk",
+      "category": "Drink Class",
+      "price": 900,
+      "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "dr4",
+      "name": "Juice",
+      "category": "Drink Class",
+      "price": 1000,
+      "image": "https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "dr5",
+      "name": "Smoothies",
+      "category": "Drink Class",
+      "price": 1500,
+      "image": "https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "dr6",
+      "name": "Chapman",
+      "category": "Drink Class",
+      "price": 1200,
+      "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "ck1",
+      "name": "Butter-Based Cake",
+      "category": "Cake Class",
+      "price": 8000,
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "ck2",
+      "name": "Oil-Based Cake",
+      "category": "Cake Class",
+      "price": 7000,
+      "image": "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "ck3",
+      "name": "Cake Parfait",
+      "category": "Cake Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    },
+    {
+      "id": "ck4",
+      "name": "Cake Decoration Techniques",
+      "category": "Cake Class",
+      "price": 5000,
+      "image": "https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "s1",
+      "name": "Efo Riro",
+      "category": "Soup Class",
+      "price": 4000,
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "s2",
+      "name": "Egusi Soup",
+      "category": "Soup Class",
+      "price": 4000,
+      "image": "https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": false
+    },
+    {
+      "id": "s3",
+      "name": "Edikang Ikong",
+      "category": "Soup Class",
+      "price": 4500,
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": true
+    },
+    {
+      "id": "s4",
+      "name": "Gbegiri",
+      "category": "Soup Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "s5",
+      "name": "Ewedu",
+      "category": "Soup Class",
+      "price": 3000,
+      "image": "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": false,
+      "chefsSpecial": false
+    },
+    {
+      "id": "s6",
+      "name": "Ata Dindin",
+      "category": "Soup Class",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=400&h=300&fit=crop&auto=format",
+      "available": true,
+      "popular": true,
+      "chefsSpecial": true
+    }
+  ],
+  "settings": {
+    "whatsapp": "+2348000000000",
+    "deliveryFee": 1500,
+    "storeName": "Tastes by Zafira"
+  }
+}
