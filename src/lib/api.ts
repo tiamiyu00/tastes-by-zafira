@@ -1,4 +1,5 @@
-import type { MenuItem, Settings } from '../types';
+import type { Session } from '@supabase/supabase-js';
+import type { MenuItem, Settings, Order, OrderStatus } from '../types';
 import supabase from './supabase';
 
 const SETTINGS_ROW_ID = 'site-settings';
@@ -8,6 +9,30 @@ const defaultSettings: Settings = {
   deliveryFee: 1500,
   storeName: 'Tastes by Zafira',
 };
+
+// ——— Auth ———
+
+export const signIn = async (email: string, password: string): Promise<void> => {
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) throw error;
+};
+
+export const signOut = async (): Promise<void> => {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw error;
+};
+
+export const getSession = async (): Promise<Session | null> => {
+  const { data: { session } } = await supabase.auth.getSession();
+  return session;
+};
+
+export const subscribeAuthChanges = (cb: (session: Session | null) => void) => {
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, s) => cb(s));
+  return subscription;
+};
+
+// ——— Menu ———
 
 export const fetchMenuItems = async (): Promise<MenuItem[]> => {
   const { data, error } = await supabase.from('menu').select('*');
@@ -35,6 +60,8 @@ export const deleteMenuItem = async (id: string): Promise<void> => {
   if (error) throw error;
 };
 
+// ——— Settings ———
+
 export const fetchSettings = async (): Promise<Settings> => {
   const { data, error } = await supabase
     .from('settings')
@@ -55,6 +82,31 @@ export const saveSettings = async (settings: Settings): Promise<Settings> => {
   if (!data) throw new Error('Failed to save settings');
   return data as Settings;
 };
+
+// ——— Orders ———
+
+export const createOrder = async (order: Omit<Order, 'id' | 'created_at'>): Promise<Order> => {
+  const newOrder = { id: crypto.randomUUID(), ...order };
+  const { data, error } = await supabase.from('orders').insert([newOrder]).select().single();
+  if (error) throw error;
+  return data as Order;
+};
+
+export const fetchOrders = async (): Promise<Order[]> => {
+  const { data, error } = await supabase
+    .from('orders')
+    .select('*')
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data as Order[]) ?? [];
+};
+
+export const updateOrderStatus = async (id: string, status: OrderStatus): Promise<void> => {
+  const { error } = await supabase.from('orders').update({ status }).eq('id', id);
+  if (error) throw error;
+};
+
+// ——— Storage ———
 
 export const uploadImage = async (file: File): Promise<string> => {
   const ext = file.name.split('.').pop() ?? 'jpg';

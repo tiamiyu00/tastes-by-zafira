@@ -44,6 +44,7 @@ const FoodCard = ({ item }: Props) => {
 
       <div className="food-card-body">
         <h3 className="food-card-name">{item.name}</h3>
+        {item.description && <p className="food-card-description">{item.description}</p>}
         <p className="food-card-category">{item.category}</p>
         <p className="food-card-price">₦{item.price.toLocaleString()}</p>
 

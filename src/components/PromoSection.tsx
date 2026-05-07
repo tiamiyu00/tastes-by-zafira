@@ -35,7 +35,7 @@ const PromoSection = () => {
               <p className="promo-text">
                 Meat pies, banana bread, doughnuts — baked fresh every morning!
               </p>
-              <button className="promo-btn" onClick={() => navigate('/menu?category=Pastries+%26+Bakes')}>
+              <button className="promo-btn" onClick={() => navigate('/menu?category=Pastries')}>
                 Shop Pastries
               </button>
             </div>

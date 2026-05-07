@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
-const Hero = () => {
+interface Props {
+  itemCount?: number;
+}
+
+const Hero = ({ itemCount }: Props) => {
   const navigate = useNavigate();
 
   return (
     <section className="hero">
-      {/* Blurred food background */}
       <img
         className="hero-bg-img"
         src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&auto=format&q=80"
@@ -26,10 +29,7 @@ const Hero = () => {
             src="/assets/Tastes_by_Zafira_logo_design__1_-removebg-preview.png"
             alt="Tastes by Zafira"
             className="hero-logo"
-            onError={(e) => {
-              const el = e.target as HTMLImageElement;
-              el.style.display = 'none';
-            }}
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
         </div>
 
@@ -55,7 +55,7 @@ const Hero = () => {
 
           <div className="hero-stats">
             <div className="hero-stat">
-              <span className="stat-value">18+</span>
+              <span className="stat-value">{itemCount ? `${itemCount}+` : '—'}</span>
               <span className="stat-label">Menu Items</span>
             </div>
             <div className="hero-stat-divider" />
@@ -65,8 +65,8 @@ const Hero = () => {
             </div>
             <div className="hero-stat-divider" />
             <div className="hero-stat">
-              <span className="stat-value">⭐ 5.0</span>
-              <span className="stat-label">Customer Rated</span>
+              <span className="stat-value">Same-day</span>
+              <span className="stat-label">Delivery</span>
             </div>
           </div>
         </div>
