@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { MenuItem, Category, Settings } from '../types';
 import ImageUpload from '../components/ImageUpload';
+import { fetchMenuItems, createMenuItem, updateMenuItem, deleteMenuItem, fetchSettings, saveSettings } from '../lib/api';
 
 const CATEGORIES: Category[] = [
   'Food Class',

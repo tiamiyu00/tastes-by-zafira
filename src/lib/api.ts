@@ -10,24 +10,24 @@ const defaultSettings: Settings = {
 };
 
 export const fetchMenuItems = async (): Promise<MenuItem[]> => {
-  const { data, error } = await supabase.from<MenuItem>('menu').select('*');
+  const { data, error } = await supabase.from('menu').select('*');
   if (error) throw error;
-  return data ?? [];
+  return (data as MenuItem[]) ?? [];
 };
 
 export const createMenuItem = async (item: Omit<MenuItem, 'id'>): Promise<MenuItem> => {
   const newItem: MenuItem = { id: crypto.randomUUID(), ...item };
-  const { data, error } = await supabase.from<MenuItem>('menu').insert([newItem]).single();
+  const { data, error } = await supabase.from('menu').insert([newItem]).select().single();
   if (error) throw error;
   if (!data) throw new Error('Failed to create menu item');
-  return data;
+  return data as MenuItem;
 };
 
 export const updateMenuItem = async (id: string, item: Partial<Omit<MenuItem, 'id'>>): Promise<MenuItem> => {
-  const { data, error } = await supabase.from<MenuItem>('menu').update(item).eq('id', id).single();
+  const { data, error } = await supabase.from('menu').update(item).eq('id', id).select().single();
   if (error) throw error;
   if (!data) throw new Error('Failed to update menu item');
-  return data;
+  return data as MenuItem;
 };
 
 export const deleteMenuItem = async (id: string): Promise<void> => {
@@ -37,23 +37,23 @@ export const deleteMenuItem = async (id: string): Promise<void> => {
 
 export const fetchSettings = async (): Promise<Settings> => {
   const { data, error } = await supabase
-    .from<Settings & { id: string }>('settings')
+    .from('settings')
     .select('*')
     .eq('id', SETTINGS_ROW_ID)
     .maybeSingle();
   if (error) throw error;
-  return data ?? defaultSettings;
+  return (data as (Settings & { id: string }) | null) ?? defaultSettings;
 };
 
 export const saveSettings = async (settings: Settings): Promise<Settings> => {
   const { data, error } = await supabase
-    .from<Settings & { id: string }>('settings')
+    .from('settings')
     .upsert({ id: SETTINGS_ROW_ID, ...settings })
     .select()
     .single();
   if (error) throw error;
   if (!data) throw new Error('Failed to save settings');
-  return data;
+  return data as Settings;
 };
 
 export const uploadImage = async (file: File): Promise<string> => {
