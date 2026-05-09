@@ -169,6 +169,7 @@ const Admin = () => {
   const [editTarget, setEditTarget] = useState<MenuItem | null>(null);
   const [search, setSearch] = useState('');
   const [filterCat, setFilterCat] = useState<'All' | Category>('All');
+  const [filterPopular, setFilterPopular] = useState<'all' | 'popular' | 'chefsSpecial'>('all');
 
   // Settings tab state
   const [savingSettings, setSavingSettings] = useState(false);
@@ -256,6 +257,11 @@ const Admin = () => {
     setItems((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
   };
 
+  const togglePopular = async (item: MenuItem) => {
+    const updated = await updateMenuItem(item.id, { popular: !item.popular });
+    setItems((prev) => prev.map((i) => (i.id === updated.id ? updated : i)));
+  };
+
   const handleSaveSettings = async () => {
     setSavingSettings(true);
     await saveSettings(settings);
@@ -272,7 +278,11 @@ const Admin = () => {
   const filteredItems = items.filter((item) => {
     const matchesCat = filterCat === 'All' || item.category === filterCat;
     const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase());
-    return matchesCat && matchesSearch;
+    const matchesPopular =
+      filterPopular === 'all' ||
+      (filterPopular === 'popular' && item.popular) ||
+      (filterPopular === 'chefsSpecial' && item.chefsSpecial);
+    return matchesCat && matchesSearch && matchesPopular;
   });
 
   const filteredOrders = orderFilter === 'all' ? orders : orders.filter((o) => o.status === orderFilter);
@@ -427,6 +437,17 @@ const Admin = () => {
                 <option value="All">All categories</option>
                 {CATEGORIES.map((c) => <option key={c}>{c}</option>)}
               </select>
+              <div className="admin-tag-filters">
+                {(['all', 'popular', 'chefsSpecial'] as const).map((f) => (
+                  <button
+                    key={f}
+                    className={`admin-tag-filter-btn ${filterPopular === f ? 'active' : ''}`}
+                    onClick={() => setFilterPopular(f)}
+                  >
+                    {f === 'all' ? 'All' : f === 'popular' ? '★ Popular' : '👨‍🍳 Chef\'s'}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {loading ? (
@@ -468,13 +489,22 @@ const Admin = () => {
                     </div>
 
                     <div className="admin-item-card-footer">
-                      <button
-                        className={`admin-toggle-avail-btn ${item.available ? 'avail-on' : 'avail-off'}`}
-                        onClick={() => toggleAvailable(item)}
-                        title={item.available ? 'Click to hide from menu' : 'Click to show on menu'}
-                      >
-                        {item.available ? '● Active' : '● Hidden'}
-                      </button>
+                      <div className="admin-card-toggles">
+                        <button
+                          className={`admin-toggle-avail-btn ${item.available ? 'avail-on' : 'avail-off'}`}
+                          onClick={() => toggleAvailable(item)}
+                          title={item.available ? 'Click to hide from menu' : 'Click to show on menu'}
+                        >
+                          {item.available ? '● Active' : '● Hidden'}
+                        </button>
+                        <button
+                          className={`admin-toggle-popular-btn ${item.popular ? 'popular-on' : 'popular-off'}`}
+                          onClick={() => togglePopular(item)}
+                          title={item.popular ? 'Remove from Popular' : 'Mark as Popular'}
+                        >
+                          {item.popular ? '★ Popular' : '☆ Popular'}
+                        </button>
+                      </div>
                       <div className="admin-card-actions">
                         <button className="admin-edit-btn" onClick={() => { setEditTarget(item); setModalMode('edit'); }}>Edit</button>
                         <button className="admin-delete-btn" onClick={() => handleDelete(item.id)}>Delete</button>

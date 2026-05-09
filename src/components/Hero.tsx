@@ -11,7 +11,7 @@ const Hero = ({ itemCount }: Props) => {
     <section className="hero">
       <img
         className="hero-bg-img"
-        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&auto=format&q=80"
+        src="https://images.unsplash.com/photo-1599354607448-8ad6e92b027a?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
         aria-hidden="true"
       />
@@ -39,7 +39,7 @@ const Hero = ({ itemCount }: Props) => {
             <span className="hero-heading-accent">the Zafira way</span>
           </h1>
           <p className="hero-subtext">
-            Freshly made Nigerian meals, pastries, snacks & drinks<br />
+            Freshly made Nigerian & international meals, pastries, snacks & drinks<br />
             delivered straight to your door with love ❤️
           </p>
 
